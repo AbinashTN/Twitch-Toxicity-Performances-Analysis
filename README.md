@@ -34,16 +34,16 @@ Start by installing the tool provided by [xenova/chat-downloader](https://github
 
 ### 📥 How It Works
 
-1. Provide a list of streamers in the `list_streamer.txt` file.
-2. The script `get_user_vod.sh` retrieves the list of available VOD links for each streamer.
-3. Using `get_category.py`, we filter the VODs by the game category (e.g., *League of Legends*).
-4. All matching VODs are processed, and their chat messages are downloaded using `chat-downloader`.
+1. The script `get_user_vod.sh` retrieves the list of available VOD links for each streamer.
+2. Using `get_category.py`, we filter the VODs by the game category (e.g., *League of Legends*).
+3. All matching VODs are processed, and their chat messages are downloaded using `chat-downloader`.
 
 ### 🔑 Requirements
 
 - A Twitch API key is required. You can generate one from the [Twitch Developer Portal](https://dev.twitch.tv/docs/api/).
 - Create a `list_vods` folder.
 - Add your API key and client ID to the `API_key` and `Client_Id` variables in `get_user_vod.sh`.
+- Provide a list of streamers in the `list_streamer.txt` file.
 
 ### ▶️ Run the Pipeline
 
@@ -54,5 +54,19 @@ bash get_all_chat.sh
 ```
 
 ## 📂 collect_lol_performance
+
+This folder contains Python code that collects the timelines of all *League of Legends* matches played by a player since June 16th, 2021.
+
+### 📥 How It Works
+
+1. Retrieve the puuid (player's unique ID) for the accounts.
+2. Fetch all match IDs since June 16th, 2021.
+3. Collect the match timelines based on the retrieved match IDs.
+
+### 🔑 Requirements
+
+- A **Riot API key** is required. You can generate one from the [Riot Developer Portal](https://developer.riotgames.com).
+- Add your API key to the `API_KEY` variable in the code.
+- Complete the `user_RiotIDs` list (located at the end of the code) with the Riot IDs of the players you want to track.
 
 ## 📂 data_analysis
