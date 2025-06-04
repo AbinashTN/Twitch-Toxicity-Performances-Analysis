@@ -70,3 +70,24 @@ This folder contains Python code that collects the timelines of all *League of L
 - Complete the `user_RiotIDs` list (located at the end of the code) with the Riot IDs of the players you want to track.
 
 ## 📂 data_analysis
+
+This folder contains three subfolders:
+
+- `messages_classification/` – Code for classifying chat messages.
+
+### 📂 messages_classification
+
+#### 📥 How It Works
+
+To classify the messages, we first normalize and clean the text. Since Twitch messages are often poorly written, we perform several text preprocessing steps (check the code for details).  
+We use a two-step approach to classify the messages:
+1. We first check for toxic expressions. We have a predefined list of toxic expressions in French, including general insults and some specific to video games. If we find a similar expression (accounting for spelling mistakes or variations), we classify the message as toxic.
+2. If no matching expression is found, we fall back on a pretrained NLP model available on Hugging Face. We use this model : [textdetox/twitter-xlmr-toxicity-classifier](https://huggingface.co/textdetox/twitter-xlmr-toxicity-classifier).
+
+#### 🔑 Requirements
+
+- You need a Hugging Face account to access the pretrained model. You can either use your login key or import the model directly. (We use this model : [textdetox/twitter-xlmr-toxicity-classifier](https://huggingface.co/textdetox/twitter-xlmr-toxicity-classifier).)
+- The code includes a list of toxic expressions in French. You can modify or expand this list by adding new words or expressions.
+
+
+
