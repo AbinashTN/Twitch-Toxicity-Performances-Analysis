@@ -41,7 +41,7 @@ Start by installing the tool provided by [xenova/chat-downloader](https://github
 ### 🔑 Requirements
 
 - A Twitch API key is required. You can generate one from the [Twitch Developer Portal](https://dev.twitch.tv/docs/api/).
-- Create a `list_vods` folder.
+- Create a `list_vods` directory.
 - Add your API key and client ID to the `API_key` and `Client_Id` variables in `get_user_vod.sh`.
 - Provide a list of streamers in the `list_streamer.txt` file.
 
@@ -55,7 +55,7 @@ bash get_all_chat.sh
 
 ## 📂 collect_lol_performance
 
-This folder contains Python code that collects the timelines of all *League of Legends* matches played by a player since June 16th, 2021.
+This directory contains Python code that collects the timelines of all *League of Legends* matches played by a player since June 16th, 2021.
 
 ### 📥 How It Works
 
@@ -71,7 +71,7 @@ This folder contains Python code that collects the timelines of all *League of L
 
 ## 📂 data_analysis
 
-This folder contains three subfolders:
+This directory contains three subdirectorys:
 
 - `messages_classification/` – Code for classifying chat messages.
 
