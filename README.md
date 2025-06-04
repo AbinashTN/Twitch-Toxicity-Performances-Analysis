@@ -88,6 +88,8 @@ We use a two-step approach to classify the messages:
 
 - You need a Hugging Face account to access the pretrained model. You can either use your login key or import the model directly. (We use this model : [textdetox/twitter-xlmr-toxicity-classifier](https://huggingface.co/textdetox/twitter-xlmr-toxicity-classifier).)
 - The code includes a list of toxic expressions in French. You can modify or expand this list by adding new words or expressions.
+- The NLP model classifies messages containing emotes (created by the streamer) as toxic. Therefore, we decided to remove the emotes from the message before passing it to the model. To do this, you need to provide the prefix used by the streamer for their emotes in the `strip_emotes` function.
+
 
 
 
