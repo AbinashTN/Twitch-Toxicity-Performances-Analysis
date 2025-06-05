@@ -65,7 +65,7 @@ This directory contains Python code that collects the timelines of all *League o
 
 ### 🔑 Requirements
 
-- A **Riot API key** is required. You can generate one from the [Riot Developer Portal](https://developer.riotgames.com).
+- A Riot API key is required. You can generate one from the [Riot Developer Portal](https://developer.riotgames.com).
 - Add your API key to the `API_KEY` variable in the code.
 - Complete the `user_RiotIDs` list (located at the end of the code) with the Riot IDs of the players you want to track.
 
@@ -74,6 +74,7 @@ This directory contains Python code that collects the timelines of all *League o
 This directory contains three subdirectorys:
 
 - `messages_classification/` – Code for classifying chat messages.
+- `data_preprocessing/` – Code for preprocessing match timelines to keep only essential data and align it with the available stream data.
 
 ### 📂 messages_classification
 
@@ -90,6 +91,18 @@ We use a two-step approach to classify the messages:
 - The code includes a list of toxic expressions in French. You can modify or expand this list by adding new words or expressions.
 - The NLP model classifies messages containing emotes (created by the streamer) as toxic. Therefore, we decided to remove the emotes from the message before passing it to the model. To do this, you need to provide the prefix used by the streamer for their emotes in the `strip_emotes` function.
 
+### 📂 data_preprocessing
+
+#### 📥 How It Works
+
+1. First, run the `match_matches_streams.py` script. It creates a folder for each stream (based on the stream's filename) and places in it all the matches that were played during that stream (for a single streamer only).
+2. Then, run the `clean_matches.py` script, which filters the data to keep only the matches and events related to the streamer (for a single streamer only).
+
+#### 🔑 Requirements
+
+- A Riot API key is required for `clean_matches.py`.
+- Add your API key to the `API_KEY` variable in the script.
+- In both scripts, make sure to specify the correct directory paths.
 
 
 
