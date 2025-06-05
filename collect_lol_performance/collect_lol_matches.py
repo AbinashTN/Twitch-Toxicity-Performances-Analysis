@@ -17,7 +17,7 @@ BASE_URL_REGIONAL = f"https://{REGION}.api.riotgames.com"
 
 #Get PUUID from endpoint Account-V1 using RiotID
 def get_puuid_from_account_api(game_name_tag: str) -> str:
-    # Séparer gameName et tagLine
+    # Separate gameName and tagLine
     if "#" not in game_name_tag:
         raise ValueError("The RiotID must be in the format 'gameName#tagLine'.")
     game_name, tag_line = game_name_tag.split("#", 1)
