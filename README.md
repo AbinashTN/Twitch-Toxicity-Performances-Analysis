@@ -75,6 +75,7 @@ This directory contains three subdirectorys:
 
 - `messages_classification/` – Code for classifying chat messages.
 - `data_preprocessing/` – Code for preprocessing match timelines to keep only essential data and align it with the available stream data.
+- `correlation_analysis/` – Code for analyzing the correlation between toxicity and various performance metrics.
 
 ### 📂 messages_classification
 
@@ -104,5 +105,21 @@ We use a two-step approach to classify the messages:
 - Add your API key to the `API_KEY` variable in the script.
 - In both scripts, make sure to specify the correct directory paths.
 
+### 📂 correlation_analysis
+
+This code implements a method for analyzing data using simple linear regression and Spearman correlation.  
+We analyze the combined data from all streamers together (not streamer-by-streamer), but the data is normalized to account for differences such as varying viewer counts or player levels.  
+The code can be easily adapted to perform analysis on a per-streamer basis by modifying the input folders.
+
+#### 📥 How It Works
+
+1. The code retrieves statistics for each metric every 5 minutes during the games.
+2. It then collects the number of toxic messages received in the 10 minutes preceding each 5-minute interval.
+3. Data is normalized by streamer to control for variability.
+4. Finally, the code performs linear regression, plots residuals, and calculates the Spearman correlation.
+
+#### 🔑 Requirements
+
+- Make sure to specify the correct directory paths.
 
 
